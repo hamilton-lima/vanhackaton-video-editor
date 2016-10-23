@@ -207,9 +207,11 @@
 
   		$scope.defaultNumberOptions = 6;
 
+  		$scope.idSeed = 1;
 	    $scope.newId = function(){
 	    	var d = new Date();
-			return d.getTime();
+	    	$scope.idSeed ++;
+			return d.getTime() + $scope.idSeed;
 	    }
 
 	    // builders
