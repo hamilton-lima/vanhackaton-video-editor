@@ -1,0 +1,141 @@
+<div ng-controller="EditorController" ng-init="init()">
+
+	<!-- ng-show="email" -->
+
+	<div class="container-fluid">
+
+		<div class="page-header">
+  		<h1><span
+		  inline-edit="story.title"
+		  inline-edit-callback="updateStoryTitle(newValue)"
+		  inline-edit-placeholder="Enter the story title"
+		  inline-edit-btn-edit=""
+		  inline-edit-on-blur="save"
+		  inline-edit-on-click></span>
+		</h1>
+		<h3><span
+		  inline-edit="story.videoId"
+		  inline-edit-callback="updateVideoId(newValue)"
+		  inline-edit-placeholder="Enter Youtube video ID"
+		  inline-edit-btn-edit=""
+		  inline-edit-on-blur="save"
+		  inline-edit-on-click></span>
+		</h3>
+		</div>
+
+        <div class="row">
+	      	<div class="col-md-12 show-grid">
+				<a ng-show="story.id" href="#/" class="btn btn-primary edit_button">Main screen</a>
+				<a ng-show="story.id" target="_blank" href="#/play/{{story.id}}" class="btn btn-primary edit_button">Watch</a>
+				<a ng-click="saveStory()" class="btn btn-success edit_button">Save</a>
+			</div>
+		</div>
+
+        <div class="row">
+
+      	<div class="col-md-12 show-grid">
+      		<div id="video">
+				<youtube-video id="player" video-id="story.videoId" player="storyPlayer"></youtube-video>
+				<div ng-show="currentQuestion" id="questions">
+					<table class="table">
+						<tbody>
+								<tr>
+								<td colspan="2"><h4>{{currentQuestion.title}}</h4></td>
+								</tr>
+							
+								<tr ng-repeat="option in currentQuestion.options track by $index">
+									<td>
+									<button type="button" ng-click="answer($index)" class="btn btn-primary btn-xs question-option" data="1">
+									&nbsp;</button>
+									</td>
+									<td>{{option.text}}</td>
+								</tr>
+						</tbody>
+					</table>
+				</div>	
+				<div ng-show="story.videoId && playerReady" id="title">{{story.title}}</div>
+				<canvas width="640" height="30" ng-show="story.videoId && playerReady" id="timeline" draggable-timeline >
+					<span ng-hide="story.questions.length">Click here to add a question.</span>
+				</canvas>
+			</div>
+		</div>
+
+      	<div class="col-md-12 show-grid" ng-show="story.videoId && playerReady">
+
+			<div class="panel" ng-repeat="question in story.questions | orderBy:'seconds' ">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading row" ng-attr-id="{{question.id}}">
+			  	<div class="col-xs-8">
+			  		<h4>
+					<span
+					  inline-edit="question.title"
+					  inline-edit-callback="updateQuestionTitle(question.id, newValue)"
+					  inline-edit-placeholder="Enter the question title"
+					  inline-edit-btn-edit=""
+					  inline-edit-on-blur="save"
+					  inline-edit-on-click></span>
+					  </h4>
+				</div>
+
+				<div class="col-xs-2"><span class="pull-right">{{question.seconds | minutes }}</span></div>
+
+				<div class="col-xs-2">
+				      <a ng-click="removeQuestion(question.id)" ng-confirm-message class="remove pull-right">Remove</a>
+				</div>
+
+			  </div>
+
+			  	<div class="panel-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Text</th>
+								<th>Url</th>
+								<th>Seek to</th>
+								<th>&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="option in question.options">
+								<td width="50%">
+									<span
+									  inline-edit="option.text"
+									  inline-edit-callback="updateOptionText(question.id, option.id, newValue)"
+									  inline-edit-placeholder="Enter the option text"
+									  inline-edit-btn-edit=""
+									  inline-edit-on-blur="save"
+									  inline-edit-on-click></span>
+								</td>
+								<td width="35%">
+									<span
+									  inline-edit="option.url"
+									  inline-edit-callback="updateOptionUrl(question.id, option.id, newValue)"
+									  inline-edit-placeholder="Navigate to this URL"
+									  inline-edit-btn-edit=""
+									  inline-edit-on-blur="save"
+									  inline-edit-on-click></span>&nbsp;<a ng-show="option.url" target="_blank" href="{{option.url}}">Test</a>
+								</td>
+
+								<td width="10%">
+									<span
+									  inline-edit="option.seekToFormatted"
+									  inline-edit-callback="updateSeekTo(question.id, option.id, newValue)"
+									  inline-edit-placeholder="Jump to second"
+									  inline-edit-btn-edit=""
+									  inline-edit-on-blur="save"
+									  inline-edit-validation="validateSeekTo(newValue)"
+									  inline-edit-on-click></span>&nbsp;<a ng-click="seekTo(question.id,option.id)" 
+									  	ng-show="option.seekToFormatted">Test</a>
+								</td>
+
+								<td width="5%">
+									<a ng-click="removeOption(question.id,option.id)" ng-confirm-message class="remove pull-right">Remove</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

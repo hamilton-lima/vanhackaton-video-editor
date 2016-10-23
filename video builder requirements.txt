@@ -1,0 +1,43 @@
+video builder requirements
+
+
+Choose your own Adventure Video Builder
+
+Company: Thinkific
+Why
+
+Online course creators are always looking for ways to make the most engaging course materials possible for their students. More engaging content can lead to better understanding, retention
+and satisfaction, making it a very important area to improve.
+
+Currently, most people only know how to make basic videos where all the content plays in order from start to finish, and the student just observes. Most Course creators we service don’t have advanced technical skills needed to create custom interactive videos.
+
+What
+
+To help our course creators easily create and offer amazing content, we’d like a tool that lets people build interactive videos.
+
+Basic Specs:
+
+1. Should work with videos that are hosted on a site like Wistia or Youtube
+2. Should allow creators to prompt viewers with a questio
+n3. Prompt should be possible at any video time specified by the creator (etc. 2min 30s of a 6 minute video)
+4. Prompt should allow space for a question, and between 2 and 6 text responses
+5. For each response, the behavior can be to resume playback, or link to another URL
+6. Prompt and responses overlaid on video.
+7. The interactive video link can be embedded into another page using HTML and a simple URL
+
+Stretch Specs:
+
+1. Custom design (positioning, images for options)
+2. Collect an email to keep playing the video
+3. Tweet/share on facebook/linked in to continue playing video
+4. Allow responses to trigger files downloads (.pdf, .txt, .xls)
+5. Creator can see results of which responses people choose
+6. Show the results of polls to viewers after they select a response
+7. Anything else that makes it fun and engaging
+
+Examples
+
+Storygami - https://storygami.com/home
+YouTube Examples - http://mashable.com/2011/01/30/interactive-youtube-videos/#OFHBw.hGc8q6
+Vizia https://vizia.co/
+Udacity - udacity.com

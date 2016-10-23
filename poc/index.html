@@ -1,0 +1,33 @@
+<html ng-app="main">
+<head>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="js/lib/jquery-2.0.3.js"></script>
+<script src="js/lib/numeral.min.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/angular-route.min.js"></script>
+<script src="js/lib/angular-animate.min.js"></script>
+<script src="js/lib/angular-scroll.min.js"></script>
+<script src="js/lib/ui-bootstrap-tpls-2.1.4.min.js"></script>
+
+<script src="js/lib/angular-youtube-embed.min.js"></script>
+<script src="js/lib/ng-inline-edit.min.js"></script>
+
+<script src="app/app.js"></script>
+<script src="app/main.controller.js"></script>
+<script src="app/editor.controller.js"></script>
+<script src="app/play.controller.js"></script>
+<script src="app/sandbox.controller.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/ng-inline-edit.min.css">
+</head>
+
+<body ng-controller="MainController as controller">
+	<div ng-view></div>
+</body>
+
+</html>

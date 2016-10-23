@@ -1,0 +1,122 @@
+video builder plan
+
+Add angular to the application - ok
+
+Create a timeline interface - ok 
+	- selectable
+
+Create the UI to add the questions
+	enter title - ok	
+	choose the video - ok 
+
+	pick the time in the timeline - ok 
+	add the empty object - ok
+	allow inplace edit - ok 
+--
+	marker ok
+	remove in table (question ok & option ok)
+	show time in minutes ok 
+	scroll to the question ok 
+	sort the list ok
+--
+test in the editor screen = OKOKOKOKOKOKOKOKOK
+--
+
+Save and load story with the questions - ok
+---------------
+ok - “Login” on the first page by entering the email
+
+ok - Replace the save button by calls to save on any changes made to the story	
+	ok - if story has id update instead of insert
+	ok - add create to the main page
+	ok - list existing stories on the first page with link to edit and view
+
+** nice debuger = <pre>{{story | json }}</pre>
+
+-------
+ok - Play the story in separated page
+	ok - save the choices
+
+ok - why auto save is not working ? (use save button!!!)
+ok - remover estorias da lista da pagina principal
+ok - add link to another URL to an option
+ok - add bar at the top with the video title (copyright issues with youtube?)
+ok - confirmacao dos metodos de remove
+
+no - add data size restriction
+
+- Deploy to a server
+	+ build an interactive video sequence :)
+
+= decide if record or add fixes
+
+	ok - show all the elements and update 
+	ok - show text if there is no question
+	ok - click on the background to add a new one
+	ok - update after drag
+	- show seconds while move mouse over the timeline
+	drop - on click scroll to the question
+
+<!-- ng-show="email" --> backt to edit.html
+
+! record a video 
+-------------
+- show seconds while move mouse over the timeline
+- edit time of the question
+
+- no parameter pages 
+
+- store user email, on local storage to handle page refresh
+
+- refactor $scope.monitorVideoPosition to a separated controller to be reused
+- get video thumbnails of the time 
+	maybe using player.getIframe() to inspect to the canvas and get the canvas image
+	and do a resize in memory
+
+- drag marker
+	$('.myList').draggable({
+	    axis: 'y',
+	    containment: 'parent'
+	});
+
+- align the bar with the youtube progress bar 
+- check if video metadata is already loaded
+- fix tooltip with space on top
+- dont allow questions on the same second
+
+----------------------
+change options to <button type="button" class="btn btn-primary btn-lg btn-block" ??
+
+
+- poc of overlay over youtube video
+	can use easejs to handle the location ? 
+	or other specific javascript to handle boxes
+	and drag
+
+	receive video current possition
+	
+https://developers.google.com/youtube/iframe_api_reference
+
+----------------------
+actions 
+
+choose video
+show video
+add question at the video time line
+	add question responses (2 - 6)
+	each question can have behaviors (resume,link)
+show question over the video player
+generate url to show the video by the video id
+
+----------------------
+plus 
+- choose question location
+- play a sound :D - fun
+- change the volumn ? 
+- add images (html) to the options
+
+- add input text with buttom to collect email - where to save the emails ?
+- action that blocks the video resume, check for tweet/facebook post
+- allow action to dowload files - can be a link to an url ?
+- creator see a report of the answers
+- add polls with result show to the viewer   

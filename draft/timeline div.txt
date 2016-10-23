@@ -1,0 +1,6 @@
+				<div ng-show="story.videoId && playerReady" id="timeline" ng-click="PickTime($event)"> 
+					<span ng-hide="story.questions.length">Click here to add a question.</span>
+					<div ng-repeat="question in story.questions" class="bar" custom-draggable
+						ng-click="scrollToQuestion($event, question.id)" ng-style="barStyle(question.percent)"
+						uib-tooltip="{{question.seconds | minutes}}" tooltip-placement="bottom"></div>
+				</div>

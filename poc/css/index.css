@@ -1,0 +1,82 @@
+.table {
+	font-size: 12px;
+}
+.show-grid {
+    margin-bottom: 15px;
+}
+
+a.remove { 
+    color: #a94442; 
+}
+
+a.remove:hover { 
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#video{
+	position: relative;
+	display: block;
+	width: 640px;
+  	height: 390px;
+}
+
+#video #questions{
+	position: absolute;
+	background: white;
+	height: 80%;
+    width: 70%;
+    opacity: 1;
+    top: 5%;
+    left: 15%;
+    z-index:100;
+}
+
+#video #timeline{
+    border-style: solid;
+    border-color: DarkSlategray;
+
+	position: absolute;
+	background: white;
+	height: 8%;
+    width: 100%;
+    opacity: 1;
+    top: 92%;
+    left: 0;
+    z-index:100;
+
+    vertical-align: middle;
+    text-align: center; 
+}
+
+#video #timeline .bar {
+	position: absolute;
+	background: #337ab7;
+	height: 100%;
+    width: 5px;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    z-index:200;
+}
+
+.ng-inline-edit__input {
+  border-bottom: 1px dashed #333;
+}
+
+.ng-inline-edit--error .ng-inline-edit__input {
+  border-color: #f00;
+}
+
+.ng-inline-edit__button {
+  color: #00f;
+  margin-left: 5px;
+}
+
+.ng-inline-edit__button:hover {
+  text-decoration: underline;
+}
+
+.ng-inline-edit__input{
+    width: 100%;
+}

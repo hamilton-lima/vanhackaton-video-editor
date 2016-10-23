@@ -1,0 +1,20 @@
+
+
+ufw allow 3000/tcp
+sudo apt-get install npm
+sudo apt-get install nodejs
+apt install nodejs-legacy
+
+sudo npm install
+
+
+
+                location /video/* {
+                        rewrite ^/video(/.*)$ $1 break;
+                        proxy_pass  http://127.0.0.1:3000/;
+                }
+
+                location /api/* {
+                        proxy_pass  http://127.0.0.1:3000/;
+                }
+

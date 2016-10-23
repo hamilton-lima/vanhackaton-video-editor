@@ -1,0 +1,112 @@
+<div ng-controller="EditorController as controller" ng-init="init()">
+
+	<div class="container-fluid">
+
+		<div class="page-header">
+  		<h1><span
+		  inline-edit="story.title"
+		  inline-edit-callback="updateStoryTitle(newValue)"
+		  inline-edit-placeholder="Enter the story title"
+		  inline-edit-btn-edit=""
+		  inline-edit-on-blur="save"
+		  inline-edit-on-click></span>
+		</h1>
+		<h3><span
+		  inline-edit="story.videoId"
+		  inline-edit-callback="updateVideoId(newValue)"
+		  inline-edit-placeholder="Enter Youtube video ID"
+		  inline-edit-btn-edit=""
+		  inline-edit-on-blur="save"
+		  inline-edit-on-click></span>
+		</h3>
+		</div>
+
+        <div class="row">
+      	<div class="col-md-12 show-grid">
+			
+      	</div>
+
+      	<div class="col-md-12 show-grid">
+      		<div id="video">
+				<youtube-video id="player" video-id="story.videoId" player="storyPlayer"></youtube-video>
+				<div ng-show="currentQuestion" id="questions">
+					<table class="table">
+						<tbody>
+								<tr>
+								<td colspan="2"><h4>{{currentQuestion.title}}</h4></td>
+								</tr>
+							
+								<tr ng-repeat="question in currentQuestion.options track by $index">
+									<td>
+									<button type="button" ng-click="answer($index)" class="btn btn-primary btn-xs question-option" data="1">
+									&nbsp;</button>
+									</td>
+									<td> option {{question.text}}</td>
+								</tr>
+						</tbody>
+					</table>
+				</div>	
+
+				<div ng-show="story.videoId && playerReady" id="timeline" ng-click="PickTime($event)"> 
+					<span ng-hide="story.questions.length">Click here to add a question.</span>
+					<div ng-repeat="question in story.questions" class="bar" 
+						ng-click="scrollToQuestion($event, question.id)" ng-style="barStyle(question.percent)"
+						uib-tooltip="{{question.seconds | minutes}}" tooltip-placement="bottom"></div>
+				</div>
+			</div>
+		</div>
+
+      	<div class="col-md-12 show-grid" ng-show="story.videoId && playerReady">
+
+			<div class="panel" ng-repeat="question in story.questions | orderBy:'seconds' ">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading row" ng-attr-id="{{question.id}}">
+			  	<div class="col-xs-10">
+			  		<h4>
+					<span
+					  inline-edit="question.title"
+					  inline-edit-callback="updateQuestionTitle(question.id, newValue)"
+					  inline-edit-placeholder="Enter the question title"
+					  inline-edit-btn-edit=""
+					  inline-edit-on-blur="save"
+					  inline-edit-on-click></span>
+					  </h4>
+				</div>
+
+				<div class="col-xs-1"><span class="pull-right">{{question.seconds | minutes }}</span></div>
+
+				<div class="col-xs-1">
+				      <a ng-click="removeQuestion(question.id)" class="remove pull-right">Remove</a>
+				</div>
+
+			  </div>
+
+			  	<div class="panel-body">
+					<table class="table">
+						<tbody>
+							<tr ng-repeat="option in question.options">
+								<td width="95%">
+									<span
+									  inline-edit="option.text"
+									  inline-edit-callback="updateOptionText(question.id, option.id, newValue)"
+									  inline-edit-placeholder="Enter the option text"
+									  inline-edit-btn-edit=""
+									  inline-edit-on-blur="save"
+									  inline-edit-on-click></span>
+								</td>
+								<td width="5%">
+									<a ng-click="removeOption(question.id,option.id)" class="remove pull-right">Remove</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-12 show-grid">
+		<pre>{{story | json }}</pre>
+		</div>
+
+	</div>
+</div>

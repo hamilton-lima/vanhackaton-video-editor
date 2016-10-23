@@ -1,0 +1,44 @@
+youtube player API 
+https://developers.google.com/youtube/iframe_api_reference#Playback_controls
+
+angular youtube component
+https://github.com/brandly/angular-youtube-embed
+
+number format (seconds to hour:minute)
+http://numeraljs.com/
+
+angular inline edit
+https://github.com/tameraydin/ng-inline-edit
+
+angular scroll
+https://github.com/oblador/angular-scroll/
+
+angular ui bootstrap 
+https://angular-ui.github.io/bootstrap/
+
+-- server side 
+
+install express routing
+https://expressjs.com/en/starter/installing.html
+http://expressjs.com/pt-br/guide/routing.html
+
+install sqllite3 
+https://www.npmjs.com/package/sqlite3
+http://blog.modulus.io/nodejs-and-sqlite
+https://github.com/mapbox/node-sqlite3/wiki/API
+
+install body parser
+https://github.com/expressjs/body-parser
+
+sqllite navigator
+http://sqlitebrowser.org/
+
+icons
+<div>Icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+
+---- other companies
+
+https://wistia.com/
+https://vizia.co/videos/a587de2471d885a33bac6c?created=true#
+https://storygami.com/#edit2/SJEBQeKJg

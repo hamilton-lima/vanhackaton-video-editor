@@ -1,0 +1,56 @@
+
+<div ng-controller="MainController as controller" ng-init="init()">
+
+	<div class="container-fluid">
+
+		<div class="page-header">
+  		<h1><a href="https://www.vanhack.com/hackathon/">Vanhackaton</a> Oct 2016 - <a href="https://hamiltonlima.com">Hamilton Lima</a><br>
+  		<small>Choose your own Adventure Video Builder - <a href="https://www.thinkific.com/">Thinkific</a></small></h1>
+		</div>
+
+ 		<div class="form-group">
+      		<label>Enter your email to edit the video stories</label>
+      		<input type="text" ng-model="email" class="form-control">
+      		<a ng-show="email" ng-click="newStory()" class="btn btn-primary">New Story</a>
+    	</div>
+
+        <div class="row">
+
+      	<div class="col-md-12 show-grid">
+
+			<div class="panel" ng-repeat="story in stories | orderBy:'lastupdate': true ">
+			  <div class="panel-heading row" >
+			  	<div class="col-xs-6">
+			  		<h4>{{story.title}}</h4>
+				</div>
+
+				<div class="col-xs-2">
+				      <a href="#/play/{{story.id}}" target="_blank" class="pull-right">View</a>
+				</div>
+
+				<div class="col-xs-2">
+				      <a href="#/editor/{{story.id}}" class="pull-right">Edit</a>
+				</div>
+
+				<div class="col-xs-2">
+					<a ng-click="removeStory(story.id)" ng-confirm-message class="remove pull-right">Remove</a>
+				</div>
+			  </div>
+		  	</div>
+
+		 </div>
+
+    	<!-- list existing stories -->
+
+    	<!--
+		<div class="row">
+			<div class="col-md-12 show-grid">
+				<a href="#/editor" class="btn btn-primary">Editor</a>
+				<a href="#/play/1" class="btn btn-primary">play video 1</a>
+				<a href="#/sandbox" class="btn btn-primary">Sandbox</a>
+			</div>
+		</div>
+		-->
+
+	</div>
+</div>

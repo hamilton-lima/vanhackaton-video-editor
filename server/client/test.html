@@ -1,0 +1,46 @@
+<html>
+<body>
+
+<canvas id="demoCanvas" width="800" height="50" style="border: 1px solid black">
+<script src="js/lib/easeljs-0.8.2.min.js"></script>
+
+<script>
+    stage = new createjs.Stage("demoCanvas");
+    data = [20, 60];
+    width = 800;
+
+    stage.removeAllChildren();
+					
+	for (var i = 0; i < data.length; i++) {
+	
+		var x = width * (data[i] / 100.0);
+		console.log('x', x , data[i]);
+
+		var shape = new createjs.Shape();
+		shape.graphics.beginFill("#337ab7").drawRect(0, 0, 5, 50);
+		shape.name = data[i];
+		shape.x = x;
+		shape.y = 0;
+
+		stage.addChild(shape);
+
+		shape.on("pressmove", function(evt) {
+			console.log('move', evt.stageX, evt.target. name );
+		    evt.target.x = evt.stageX;
+		    stage.update();
+		});
+
+		shape.on("pressup", function(evt) { 
+			console.log("up", evt.target.name ); 
+			//scope.PickTime(evt);
+		});
+
+	}
+
+    stage.update();
+
+
+</script>
+
+</body>
+</html>
