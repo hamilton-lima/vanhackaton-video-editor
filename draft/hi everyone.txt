@@ -1,0 +1,21 @@
+Hi Everyone,
+Here is Hamilton Lima 
+and will present my project to the 
+vanhackaton of october 2016
+
+I pick the 
+Choose your own adventure video builder
+challenge
+
+The goal of this challenge is to help content creators to build more engaging contents using videos.
+
+At this first screen the user can manage the existing stories or create new ones.
+
+Lets create one story from scratch 
+
+[click create new]
+
+Lets change one story
+
+[click Edit Fusrodah story]
+
