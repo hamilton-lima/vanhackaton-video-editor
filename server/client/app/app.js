@@ -1,7 +1,7 @@
 (function() {
-    
+
     var app = angular.module('main', [ 'ngRoute', 'youtube-embed', 'angularInlineEdit', 'duScroll', 'ui.bootstrap']);
-    
+
     app.config(function($routeProvider) {
 		$routeProvider.when('/', {
 		    templateUrl : 'pages/main.html',
@@ -40,7 +40,7 @@
 	            });
 	        }
  		};
-	}]);	
+	}]);
 
     // use as : draggable-timeline
     app.directive('draggableTimeline', [ function() {
@@ -49,7 +49,7 @@
            	link: function (scope, element, attribute) {
 				console.log('------------ draggable-timeline', element, attribute );
 
-				// TODO: support more than one 
+				// TODO: support more than one
 				scope.timelineWidth = element.context.offsetWidth;
 				scope.timelineHeight = element.context.offsetHeight;
 
@@ -63,15 +63,15 @@
 					console.log('story.questions', story.questions);
 					console.log('story.questions.length', story.questions.length);
 
-					// empty the stage 
-					scope.stage.removeAllChildren();
+					// empty the stage
+					scope.stage.removeAllChildren();F
 
 					if( story.questions.length == 0 ){
 						var text = new createjs.Text("Click here to add a new question", "18px Arial", "black");
 
 						var b = text.getBounds();
 						console.log('bounds', b, scope.timelineWidth);
-						text.x = (scope.timelineWidth - b.width)/2; 
+						text.x = (scope.timelineWidth - b.width)/2;
 						text.y = (scope.timelineHeight - b.height)/2;
 
 						scope.stage.addChild(text);
@@ -85,14 +85,14 @@
 
 					scope.stage.addChild(background);
 
-					background.on("pressup", function(evt) { 
-						console.log("background", evt.stageX, scope.timelineWidth ); 
+					background.on("pressup", function(evt) {
+						console.log("background", evt.stageX, scope.timelineWidth );
 						scope.PickTime(evt.stageX, scope.timelineWidth);
 					});
 
 					// questions
 					for (var i = 0; i < story.questions.length; i++) {
-	
+
 						var x = scope.timelineWidth * (story.questions[i].percent / 100.0);
 						console.log('x', x , story.questions[i].id);
 
@@ -111,8 +111,8 @@
 						    scope.stage.update();
 						});
 
-						shape.on("pressup", function(evt) { 
-							console.log("up", evt.target.name ); 
+						shape.on("pressup", function(evt) {
+							console.log("up", evt.target.name );
 							scope.UpdateTime(evt.target.name, evt.stageX, scope.timelineWidth);
 						});
 					}

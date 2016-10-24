@@ -2,34 +2,34 @@
 
 	<div class="container-fluid">
 
-	    <div class="row">
-	      	<div class="col-md-12">
-		      	<div class="col-md-12 show-grid">
-		      		<div id="video">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-12 show-grid">
+					<div id="video">
 						<youtube-video id="player" video-id="story.videoId" player="storyPlayer"></youtube-video>
 						<div id="title">{{story.title}}</div>
 						<div ng-show="currentQuestion" id="questions">
 							<table class="table">
 								<tbody>
 									<tr>
-									<td colspan="2"><h4>{{currentQuestion.title}}</h4></td>
+										<td colspan="2">
+											<h4>{{currentQuestion.title}}</h4></td>
 									</tr>
-								
+
 									<tr ng-repeat="option in currentQuestion.options">
 										<td>
-										<button type="button" ng-click="answer(currentQuestion.id, option.id, option.url, option.seekTo)" 
-											class="btn btn-primary btn-xs question-option" data="1">
+											<button type="button" ng-click="answer(currentQuestion.id, option.id, option.url, option.seekTo)" class="btn btn-primary btn-xs question-option" data="1">
 											&nbsp;</button>
 										</td>
 										<td>{{option.text}}</td>
 									</tr>
 								</tbody>
 							</table>
-						</div>	
+						</div>
 					</div>
 				</div>
 
-	      	</div>
+			</div>
 		</div>
 	</div>
 </div>

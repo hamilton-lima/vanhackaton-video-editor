@@ -1,7 +1,7 @@
 <html>
-<body>
 
-<canvas id="demoCanvas" width="800" height="50" style="border: 1px solid black">
+<body>
+    <canvas id="demoCanvas" width="800" height="50" style="border: 1px solid black">
 <script src="js/lib/easeljs-0.8.2.min.js"></script>
 
 <script>
@@ -10,9 +10,9 @@
     width = 800;
 
     stage.removeAllChildren();
-					
+
 	for (var i = 0; i < data.length; i++) {
-	
+
 		var x = width * (data[i] / 100.0);
 		console.log('x', x , data[i]);
 
@@ -30,8 +30,8 @@
 		    stage.update();
 		});
 
-		shape.on("pressup", function(evt) { 
-			console.log("up", evt.target.name ); 
+		shape.on("pressup", function(evt) {
+			console.log("up", evt.target.name );
 			//scope.PickTime(evt);
 		});
 

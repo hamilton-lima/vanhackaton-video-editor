@@ -3,55 +3,56 @@
 	<div class="container-fluid">
 
 		<div class="page-header">
-  		<h1><a href="https://www.vanhack.com/hackathon/">Vanhackaton</a> Oct 2016 - <a href="https://hamiltonlima.com">Hamilton Lima</a><br>
+			<h1><a href="https://www.vanhack.com/hackathon/">Vanhackaton</a> Oct 2016 - <a href="https://hamiltonlima.com">Hamilton Lima</a><br>
   		<small>Choose your own Adventure Video Builder - <a href="https://www.thinkific.com/">Thinkific</a></small></h1>
-  		<h1>Editor</h1>
+			<h1>Editor</h1>
 		</div>
 
-        <div class="row">
-      	<div class="col-md-12 show-grid">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
+		<div class="row">
+			<div class="col-md-12 show-grid">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+				dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
 
-      	<div class="col-md-12 show-grid">
-      		<div id="video">
-				<youtube-video id="player" video-id="videoId" player="storyPlayer"></youtube-video>
-				<div ng-show="showQuestions" id="questions">
-					<table class="table">
-						<tbody>
+			<div class="col-md-12 show-grid">
+				<div id="video">
+					<youtube-video id="player" video-id="videoId" player="storyPlayer"></youtube-video>
+					<div ng-show="showQuestions" id="questions">
+						<table class="table">
+							<tbody>
 								<tr>
-								<td colspan="2">{{questionTitle}}</td>
+									<td colspan="2">{{questionTitle}}</td>
 								</tr>
-							
+
 								<tr ng-repeat="question in questions track by $index">
 									<td>
-									<button type="button" ng-click="answer($index)" class="btn btn-primary btn-xs question-option" data="1">
+										<button type="button" ng-click="answer($index)" class="btn btn-primary btn-xs question-option" data="1">
 									&nbsp;</button>
 									</td>
 									<td>{{question}}</td>
 								</tr>
-						</tbody>
-					</table>
-				</div>	
+							</tbody>
+						</table>
+					</div>
 
-				<div id="timeline" ng-click="PickATime($event)"> 
-					<div id="bar" ng-click="PickATimeBar($event)" ng-style="barStyle"></div>
+					<div id="timeline" ng-click="PickATime($event)">
+						<div id="bar" ng-click="PickATimeBar($event)" ng-style="barStyle"></div>
+					</div>
 				</div>
 			</div>
+
+			<div class="col-md-12 show-grid">
+				<button id="show-questions" ng-click="toogleVideo()" type="button" class="btn btn-primary">show/hide questions</button>
+				<button id="jump-120" ng-click="jump120()" type="button" class="btn btn-primary">first 2min</button>
+				<button id="forward-120" ng-click="forward120()" type="button" class="btn btn-primary">forward 2min</button>
+			</div>
+
+
+			<div class="col-sm-4">
+				<div id="timer" class="alert alert-info" role="alert">{{currentTime}}</div>
+			</div>
+
+			<div class="col-sm-4">
+				<div id="response" class="alert alert-info" role="alert">{{currentOption}}</div>
+			</div>
+
 		</div>
-
-      	<div class="col-md-12 show-grid">
-			<button id="show-questions" ng-click="toogleVideo()" type="button" class="btn btn-primary">show/hide questions</button>
-			<button id="jump-120" ng-click="jump120()" type="button" class="btn btn-primary">first 2min</button>
-			<button id="forward-120" ng-click="forward120()" type="button" class="btn btn-primary">forward 2min</button>
-		</div>
-
-
-		<div class="col-sm-4">
-			<div id="timer" class="alert alert-info" role="alert">{{currentTime}}</div>
-		</div>
-
-		<div class="col-sm-4">
-			<div id="response" class="alert alert-info" role="alert">{{currentOption}}</div>
-		</div>
-
 	</div>
-</div>
