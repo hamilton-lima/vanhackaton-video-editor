@@ -44,4 +44,7 @@ jspm_packages
 .node_repl_history
 
 # Output of 'npm pack'
-*.tgz 
+*.tgz
+
+# project sqllite database
+video-builder.db
