@@ -37,21 +37,18 @@
       		<div id="video">
 				<youtube-video id="player" video-id="story.videoId" player="storyPlayer"></youtube-video>
 				<div ng-show="currentQuestion" id="questions">
-					<table class="table">
-						<tbody>
-								<tr>
-								<td colspan="2"><h4>{{currentQuestion.title}}</h4></td>
-								</tr>
 
-								<tr ng-repeat="option in currentQuestion.options track by $index">
-									<td>
-									<button type="button" ng-click="answer($index)" class="btn btn-primary btn-xs question-option" data="1">
-									&nbsp;</button>
-									</td>
-									<td>{{option.text}}</td>
-								</tr>
+					<table class="table table-hover">
+						<tbody>
+							<tr>
+								<td><h4>{{currentQuestion.title}}</h4></td>
+							</tr>
+							<tr class="question-option" ng-repeat="option in currentQuestion.options" ng-click="answer(currentQuestion.id, option.id, option.url, option.seekTo)" >
+								<td>{{option.text}}</td>
+							</tr>
 						</tbody>
 					</table>
+
 				</div>
 				<div ng-show="story.videoId && playerReady" id="title">{{story.title}}</div>
 			</div>

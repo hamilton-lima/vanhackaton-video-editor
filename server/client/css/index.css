@@ -13,6 +13,10 @@
 	cursor: pointer;
 }
 
+.question-option{
+	cursor: pointer;
+}
+
 a.remove {
     color: #a94442;
 }
@@ -41,15 +45,15 @@ a.remove:hover {
   	height: 390px;
 }
 
-#video #questions{
-	position: absolute;
-	background: white;
-	height: 80%;
+#video #questions {
+    position: absolute;
+    background: white;
+    height: 70%;
     width: 70%;
     opacity: 1;
-    top: 5%;
+    top: 15%;
     left: 15%;
-    z-index:100;
+    z-index: 100;
 }
 
 #video #timeline{
