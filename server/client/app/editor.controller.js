@@ -1,8 +1,8 @@
 (function() {
-    
+
     var app = angular.module('main');
-    
-    app.controller('EditorController', [ '$scope', '$http', '$timeout','$document', '$rootScope', '$routeParams', 
+
+    app.controller('EditorController', [ '$scope', '$http', '$timeout','$document', '$rootScope', '$routeParams',
     	function($scope, $http, $timeout, $document, $rootScope, $routeParams) {
 
 	    // scroll definitions
@@ -19,10 +19,10 @@
 
 		$scope.saveStory = function() {
 		    console.log("save story clicked");
-		    
+
 			var parameter = {
 				'email': $scope.email,
-				'data': $scope.story 
+				'data': $scope.story
 			};
 
 		    $http.post("/api/story/save", parameter )
@@ -35,13 +35,13 @@
 		    });
 		}
 
-	    $scope.story = { 
-	    	'title': 'Untitled story', 
-	    	'videoId': null, 
+	    $scope.story = {
+	    	'title': 'Untitled story',
+	    	'videoId': null,
 	   		'questions': []
 	   	};
 
-	   	// update callbacks 
+	   	// update callbacks
 	    $scope.updateStoryTitle = function(newValue){
 	    	console.log('updateStoryTitle', newValue);
 	    }
@@ -64,7 +64,7 @@
 	    	console.log('updateOptionUrl', questionId, optionId, newValue);
 	    }
 
-	    // remove elements 
+	    // remove elements
 		$scope.removeQuestion = function(id){
 	    	console.log('removeQuestion', id );
 
@@ -77,6 +77,18 @@
 			}
 
 		}
+
+    $scope.addOption = function(id){
+        for(var i = 0; i < $scope.story.questions.length; i++) {
+            if( $scope.story.questions[i].id == id ){
+                console.log('question FOUND to add Option');
+                var lastOption = $scope.story.questions[i].options.length +1;
+                $scope.story.questions[i].options.push( $scope.buildEmptyOption(lastOption) );
+                break;
+            }
+        }
+    }
+
 
 		$scope.removeOption = function(questionId, optionId){
 	    	console.log('removeOption', questionId, optionId );
@@ -172,12 +184,12 @@
 				}
 
 				// schedule the next call
-		        $timeout(playerCurrentTimeInspector, 
+		        $timeout(playerCurrentTimeInspector,
 		        	$scope.playerCurrentTimeInspectorInterval);
 		    }
 
 		    // the first call
-		    $timeout(playerCurrentTimeInspector, 
+		    $timeout(playerCurrentTimeInspector,
 		    	$scope.playerCurrentTimeInspectorInterval);
 	    }
 
@@ -197,7 +209,7 @@
 
 		$scope.playerReady = false;
 	    $scope.$on('youtube.player.ready', function ($event, player) {
-    		console.log('player is ready');	
+    		console.log('player is ready');
     		$scope.playerReady = true;
     		player.playVideo();
 
@@ -217,7 +229,7 @@
 	    // builders
 	    // TODO: check if can remove seconds without loosing precision
 		$scope.buildEmptyQuestion = function(seconds, percent){
-			return { 'id': $scope.newId(), 
+			return { 'id': $scope.newId(),
 				'seconds': seconds,
 				'percent': percent,
 				'secondsInt': Math.floor(seconds),
@@ -230,14 +242,19 @@
 			var result = [];
 			for (var i = 0; i < $scope.defaultNumberOptions; i++) {
 				var pos = i+1;
-				result.push({ 
-					'id': $scope.newId(), 
-					'text'  : 'Option ' + pos,
-					'url'  : null
-				});
+				result.push( $scope.buildEmptyOption(pos) );
 			}
 			return result;
 		}
+
+    $scope.buildEmptyOption = function(pos){
+        return {
+					'id': $scope.newId(),
+					'text'  : 'Option ' + pos,
+					'url'  : null
+				};
+    }
+
 
    		$scope.addNewQuestion = function(percent){
    			if( $scope.playerReady ){
@@ -251,19 +268,19 @@
    			}
    		}
 
-   		// timeline functions 
+   		// timeline functions
 		$scope.barStyle = function(percent){
   			return {'left': percent + '%' };
 		}
 
   		$scope.PickTime = function(x, width){
-    		console.log('PickTime', x, width );	
+    		console.log('PickTime', x, width );
     		var percent = x / width;
     		$scope.addNewQuestion(percent);
   		}
 
 		$scope.UpdateTime = function(id, x , width){
-    		console.log('UpdateTime', x, width, id );	
+    		console.log('UpdateTime', x, width, id );
     		var percent = x / width;
 			var seconds = $scope.storyPlayer.getDuration() * percent;
 
@@ -283,7 +300,7 @@
 			var seekTo = numeral().unformat(newValue);
 			if( seekTo >= 0 ){
 				return true;
-			} 
+			}
 
 			return false;
 		}
@@ -306,7 +323,7 @@
 				}
 			}
 		}
-			
+
 		$scope.seekTo = function(questionId, optionId){
 
 			var seekTo = -1;

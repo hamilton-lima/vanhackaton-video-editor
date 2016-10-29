@@ -65,7 +65,7 @@
 			<div class="panel" ng-repeat="question in story.questions | orderBy:'seconds' ">
 			  <!-- Default panel contents -->
 			  <div class="panel-heading row" ng-attr-id="{{question.id}}">
-			  	<div class="col-xs-8">
+			  	<div class="col-xs-6">
 			  		<h4>
 					<span
 					  inline-edit="question.title"
@@ -80,7 +80,11 @@
 				<div class="col-xs-2"><span class="pull-right">{{question.seconds | minutes }}</span></div>
 
 				<div class="col-xs-2">
-				      <a ng-click="removeQuestion(question.id)" ng-confirm-message class="remove pull-right">Remove</a>
+				      <span class="pull-right"><a ng-click="addOption(question.id)" class="pull-right">New Option</a></span>
+				</div>
+
+				<div class="col-xs-2">
+				      <span class="pull-right"><a ng-click="removeQuestion(question.id)" ng-confirm-message class="remove pull-right">Remove</a></span>
 				</div>
 
 			  </div>

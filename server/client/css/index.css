@@ -30,6 +30,10 @@ a.remove:hover {
     width: 670;
 }
 
+.h4, .h5, .h6, h4, h5, h6 {
+    margin-top: auto;
+}
+
 #video{
 	position: relative;
 	display: block;
