@@ -42,7 +42,7 @@
 								<tr>
 								<td colspan="2"><h4>{{currentQuestion.title}}</h4></td>
 								</tr>
-							
+
 								<tr ng-repeat="option in currentQuestion.options track by $index">
 									<td>
 									<button type="button" ng-click="answer($index)" class="btn btn-primary btn-xs question-option" data="1">
@@ -52,7 +52,7 @@
 								</tr>
 						</tbody>
 					</table>
-				</div>	
+				</div>
 				<div ng-show="story.videoId && playerReady" id="title">{{story.title}}</div>
 			</div>
 			<canvas width="640" height="30" ng-show="story.videoId && playerReady" id="timeline" draggable-timeline >
@@ -113,7 +113,7 @@
 									  inline-edit-placeholder="Navigate to this URL"
 									  inline-edit-btn-edit=""
 									  inline-edit-on-blur="save"
-									  inline-edit-on-click></span>&nbsp;<a ng-show="option.url" target="_blank" href="{{option.url}}">Test</a>
+									  inline-edit-on-click></span>&nbsp;<a class="test-link" ng-show="option.url" target="_blank" href="{{option.url}}">Test</a>
 								</td>
 
 								<td width="10%">
@@ -124,7 +124,7 @@
 									  inline-edit-btn-edit=""
 									  inline-edit-on-blur="save"
 									  inline-edit-validation="validateSeekTo(newValue)"
-									  inline-edit-on-click></span>&nbsp;<a ng-click="seekTo(question.id,option.id)" 
+									  inline-edit-on-click></span>&nbsp;<a class="test-link" ng-click="seekTo(question.id,option.id)"
 									  	ng-show="option.seekToFormatted">Test</a>
 								</td>
 

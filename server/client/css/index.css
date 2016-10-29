@@ -9,13 +9,17 @@
     margin-right: 5px;
 }
 
-a.remove { 
-    color: #a94442; 
+.test-link{
+	cursor: pointer;
 }
 
-a.remove:hover { 
-    font-weight: 700;
+a.remove {
+    color: #a94442;
+}
+
+a.remove:hover {
     text-decoration: none;
+		cursor: pointer;
 }
 
 .container-fluid {
@@ -57,7 +61,7 @@ a.remove:hover {
     z-index:10000;
 
     vertical-align: middle;
-    text-align: center; 
+    text-align: center;
 }
 
 #video #title{
